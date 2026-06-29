@@ -1,0 +1,53 @@
+---
+import Truck from './Truck.astro';
+---
+
+<div class="road" aria-hidden="true">
+  <div class="road__truck"><Truck /></div>
+</div>
+
+<style>
+  .road {
+    position: relative;
+    overflow: hidden;
+    height: 72px;
+    margin-top: 44px;
+  }
+
+  .road__truck {
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 132px;
+    will-change: transform;
+    animation: road-drive 9s linear infinite;
+  }
+
+  .road__truck :global(.truck) {
+    animation: road-bounce 0.45s ease-in-out infinite alternate;
+  }
+
+  @keyframes road-drive {
+    from {
+      transform: translateX(-150px);
+    }
+    to {
+      transform: translateX(calc(100vw + 30px));
+    }
+  }
+
+  @keyframes road-bounce {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .road {
+      display: none;
+    }
+  }
+</style>

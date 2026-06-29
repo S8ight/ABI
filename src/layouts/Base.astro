@@ -1,0 +1,162 @@
+---
+import '@fontsource-variable/montserrat';
+import '../styles/global.css';
+import site from '../data/site.json';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Будівництво будинків під ключ в Івано-Франківську — АРС БУДІНВЕСТ',
+  description = 'Будуємо будинки під ключ, виробляємо бетонні блоки та здаємо в оренду спецтехніку на Івано-Франківщині. 11+ років досвіду, фіксований кошторис і гарантія на всі роботи.',
+} = Astro.props;
+
+const origin = Astro.site ? Astro.site.origin : '';
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/assets/og-image.png', Astro.site);
+const logo = new URL('/assets/logo-mark.png', Astro.site);
+const phone = site.phoneHref.replace('tel:', '');
+
+const areaServed = [
+  'Івано-Франківська область',
+  'Івано-Франківськ',
+  'Яремче',
+  'Татарів',
+  'Ланчин',
+].map((name) => ({ '@type': 'AdministrativeArea', name }));
+
+const services = [
+  {
+    '@type': 'Service',
+    name: 'Будівництво будинків під ключ',
+    description:
+      'Проєктування та будівництво приватних будинків під ключ — від фундаменту до оздоблення, з фіксованим кошторисом і гарантією.',
+  },
+  {
+    '@type': 'Service',
+    name: 'Виробництво бетонних блоків',
+    description:
+      'Власне виробництво бетонних блоків незнімної опалубки, відсівблоків та армованих бетонних стовпчиків.',
+  },
+  {
+    '@type': 'Service',
+    name: 'Оренда спецтехніки',
+    description:
+      'Оренда будівельної спецтехніки: екскаватор, фронтальний навантажувач, маніпулятор, самоскид та інша техніка.',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${origin}/#website`,
+      url: `${origin}/`,
+      name: 'АРС БУДІНВЕСТ',
+      inLanguage: 'uk-UA',
+      publisher: { '@id': `${origin}/#business` },
+    },
+    {
+      '@type': 'GeneralContractor',
+      '@id': `${origin}/#business`,
+      name: 'АРС БУДІНВЕСТ',
+      alternateName: 'ARS BUDINVEST',
+      description,
+      url: `${origin}/`,
+      telephone: phone,
+      email: site.email,
+      image: ogImage.href,
+      logo: logo.href,
+      priceRange: '₴₴',
+      currenciesAccepted: 'UAH',
+      knowsLanguage: ['uk'],
+      address: {
+        '@type': 'PostalAddress',
+        addressRegion: 'Івано-Франківська область',
+        addressCountry: 'UA',
+      },
+      areaServed,
+      makesOffer: services.map((s) => ({ '@type': 'Offer', itemOffered: s })),
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="АРС БУДІНВЕСТ" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="uk-UA" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+    <meta name="theme-color" content="#2f5d3a" />
+    <meta name="geo.region" content="UA-26" />
+    <meta name="geo.placename" content="Івано-Франківськ" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="uk_UA" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="АРС БУДІНВЕСТ" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="АРС БУДІНВЕСТ — будівництво будинків під ключ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="АРС БУДІНВЕСТ — будівництво будинків під ключ" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти до вмісту</a>
+    <slot />
+
+    <script>
+      const revealEls = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window && revealEls.length) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0, rootMargin: '0px 0px -40px 0px' }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+      }
+
+      const header = document.querySelector('.header');
+      if (header) {
+        const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      }
+    </script>
+  </body>
+</html>

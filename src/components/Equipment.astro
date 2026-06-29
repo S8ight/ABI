@@ -1,0 +1,125 @@
+---
+import equipment from '../data/equipment.json';
+import Icon from './Icon.astro';
+---
+
+<section class="section section--alt" id="equipment">
+  <div class="container">
+    <h2 class="section-title section-title--left" data-reveal>{equipment.heading}</h2>
+    <div class="equipment">
+      {equipment.items.map((item, i) => (
+        <article class="equip-card" data-reveal style={`--reveal-delay:${i * 100}ms`}>
+          <div class="equip-card__media">
+            <img src={item.image} alt={item.imageAlt} width="320" height="180" loading="lazy" />
+          </div>
+          <div class="equip-card__body">
+            <span class="equip-card__icon"><Icon name={item.icon} size={24} /></span>
+            <h3 class="equip-card__title">{item.title}</h3>
+            <p class="equip-card__text">{item.text}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .equipment {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .equip-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  }
+
+  .equip-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .equip-card__media {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .equip-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 12px;
+    transition: transform 0.6s var(--ease);
+  }
+
+  .equip-card:hover .equip-card__media img {
+    transform: scale(1.05);
+  }
+
+  .equip-card__body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 22px 24px 26px;
+  }
+
+  .equip-card__icon {
+    position: absolute;
+    top: -26px;
+    right: 22px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: var(--color-green);
+    color: #fff;
+    box-shadow: 0 10px 22px rgba(47, 93, 58, 0.32);
+    transition: transform 0.4s var(--ease);
+  }
+
+  .equip-card:hover .equip-card__icon {
+    transform: translateY(-4px) rotate(-6deg);
+  }
+
+  .equip-card__title {
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+    padding-right: 36px;
+  }
+
+  .equip-card__text {
+    color: var(--color-text-muted);
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .equipment {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .equipment {
+      grid-template-columns: 1fr;
+      max-width: 420px;
+      margin-inline: auto;
+    }
+  }
+</style>

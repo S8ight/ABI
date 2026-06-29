@@ -1,0 +1,49 @@
+---
+import site from '../data/site.json';
+
+interface Props {
+  variant?: 'dark' | 'light';
+}
+const { variant = 'dark' } = Astro.props;
+const { brand } = site;
+const fullName = `${brand.part1}${brand.part2}${brand.part3}`;
+---
+
+<a class={`logo logo--${variant}`} href="/" aria-label={`${fullName} — ${brand.tagline}`}>
+  <img
+    class="logo__img"
+    src="/assets/logo-mark.png"
+    alt={`${fullName} — ${brand.tagline}`}
+    width="440"
+    height="199"
+  />
+</a>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .logo__img {
+    height: 52px;
+    width: auto;
+    display: block;
+  }
+
+  .logo--light {
+    background: #fff;
+    padding: 9px 16px;
+    border-radius: 12px;
+  }
+
+  .logo--light .logo__img {
+    height: 42px;
+  }
+
+  @media (max-width: 480px) {
+    .logo__img {
+      height: 44px;
+    }
+  }
+</style>

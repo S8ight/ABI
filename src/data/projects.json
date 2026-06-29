@@ -1,0 +1,60 @@
+{
+  "heading": "БУДІВНИЦТВО БУДИНКІВ ПІД КЛЮЧ",
+  "subheading": "Приклади готових проектів",
+  "items": [
+    {
+      "id": "barn-house",
+      "title": "Barn House",
+      "area": "110 м²",
+      "term": "6–8 місяців",
+      "detail": "Кухня-студія на першому поверсі, три спальні на другому",
+      "image": "/assets/projects/barn-house.webp",
+      "imageAlt": "Будинок Barn House під ключ у лісі"
+    },
+    {
+      "id": "a-frame",
+      "title": "Комплекс A-Frame",
+      "area": "5 × 70 м²",
+      "term": "8 місяців",
+      "detail": "Комплекс із п'яти будинків: дві спальні та санвузол у кожному",
+      "image": "/assets/projects/a-frame.webp",
+      "imageAlt": "Комплекс будинків A-Frame"
+    },
+    {
+      "id": "block-house",
+      "title": "Block House",
+      "area": "220 м²",
+      "term": "до 1 року",
+      "detail": "Відпочинковий будинок із двох частин, сауна та технічне приміщення",
+      "image": "/assets/projects/block-house.webp",
+      "imageAlt": "Відпочинковий будинок Block House з басейном"
+    },
+    {
+      "id": "tatariv",
+      "title": "Котеджі у Татарові",
+      "area": "120 м²",
+      "term": "6 місяців",
+      "detail": "Приватні котеджі: три спальні, хол 50 м², цоколь і тераса",
+      "image": "/assets/projects/tatariv.webp",
+      "imageAlt": "Комплекс приватних котеджів у Татарові"
+    },
+    {
+      "id": "yaremche",
+      "title": "Котедж в Яремче",
+      "area": "120 м²",
+      "term": "до 1 року",
+      "detail": "Кухня-студія, підвальний поверх і тераси площею 40 м²",
+      "image": "/assets/projects/yaremche.webp",
+      "imageAlt": "Котедж «Американець» у Яремче"
+    },
+    {
+      "id": "lanchyn",
+      "title": "Будинок у Ланчині",
+      "area": "143 м²",
+      "term": "7 місяців",
+      "detail": "Приватний житловий будинок під ключ",
+      "image": "/assets/projects/lanchyn.webp",
+      "imageAlt": "Приватний будинок у Ланчині"
+    }
+  ]
+}

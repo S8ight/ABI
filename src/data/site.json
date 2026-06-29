@@ -1,0 +1,41 @@
+{
+  "brand": {
+    "part1": "АРС",
+    "part2": "БУД",
+    "part3": "ІНВЕСТ",
+    "tagline": "Будівництво під ключ"
+  },
+  "phone": "067 00 98 008",
+  "phoneHref": "tel:+380670098008",
+  "email": "info@arsbudinvest.ua",
+  "region": "Працюємо в Івано-Франківській та сусідніх областях",
+  "socials": [
+    { "label": "Instagram", "icon": "instagram", "href": "https://instagram.com/" },
+    { "label": "TikTok", "icon": "tiktok", "href": "https://tiktok.com/" }
+  ],
+  "hero": {
+    "titleLines": [
+      { "text": "БУДУЄМО", "color": "dark" },
+      { "text": "БУДИНКИ", "color": "orange" },
+      { "text": "ПІД КЛЮЧ", "color": "green" }
+    ],
+    "bullets": [
+      { "icon": "ruler", "text": "Будівництво під ключ", "href": "#projects" },
+      { "icon": "blocks", "text": "Власне виробництво блоків", "href": "#blocks" },
+      { "icon": "truck", "text": "Оренда спецтехніки", "href": "#equipment" }
+    ],
+    "primaryCta": "Отримати кошторис",
+    "image": "/assets/hero/hero.jpg",
+    "imageAlt": "Сучасний будинок під ключ"
+  },
+  "trustBar": [
+    { "icon": "medal", "text": "11+ років досвіду" },
+    { "icon": "shield-check", "text": "Гарантія на всі роботи" },
+    { "icon": "calculator", "text": "Фіксований кошторис" },
+    { "icon": "map-pin", "text": "Івано-Франківська та сусідні області" }
+  ],
+  "cta": {
+    "title": "ПОТРІБЕН БУДИНОК, БЛОКИ АБО ТЕХНІКА?",
+    "buttonLabel": "Замовити дзвінок"
+  }
+}

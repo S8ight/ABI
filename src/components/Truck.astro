@@ -1,0 +1,100 @@
+---
+---
+
+<svg class="truck" viewBox="0 0 190 86" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="tk-cab" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafb" />
+      <stop offset="1" stop-color="#c9cfd3" />
+    </linearGradient>
+    <linearGradient id="tk-blk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bcc2c6" />
+      <stop offset="1" stop-color="#969ca1" />
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="96" cy="80" rx="86" ry="5" fill="rgba(20,24,28,0.12)" />
+  <rect x="24" y="58" width="146" height="6" rx="2" fill="#262b2f" />
+
+  <rect x="20" y="50" width="80" height="10" rx="1.5" fill="#3b4147" />
+  <rect x="94" y="22" width="6" height="30" rx="1" fill="#2f353b" />
+  <g stroke="#7c8186" stroke-width="1.3">
+    <rect x="24" y="34" width="26" height="17" rx="1.5" fill="url(#tk-blk)" />
+    <rect x="52" y="34" width="26" height="17" rx="1.5" fill="url(#tk-blk)" />
+    <rect x="38" y="16" width="26" height="17" rx="1.5" fill="url(#tk-blk)" />
+  </g>
+  <g fill="#83898e">
+    <rect x="29" y="38" width="6" height="9" rx="0.5" />
+    <rect x="39" y="38" width="6" height="9" rx="0.5" />
+    <rect x="57" y="38" width="6" height="9" rx="0.5" />
+    <rect x="67" y="38" width="6" height="9" rx="0.5" />
+    <rect x="43" y="20" width="6" height="9" rx="0.5" />
+    <rect x="53" y="20" width="6" height="9" rx="0.5" />
+  </g>
+
+  <rect x="100" y="15" width="3.5" height="21" rx="1.75" fill="#3a4046" />
+
+  <path d="M104 60 V32 Q104 26 110 26 H150 Q155 26 159 30 L177 50 Q180 53 180 57 V60 Z" fill="url(#tk-cab)" />
+  <path d="M161 32 L177 50 H163 Q161 50 161 48 Z" fill="#d3e8f3" />
+  <rect x="112" y="31" width="40" height="14" rx="2.5" fill="#cfe7f2" stroke="#949ba0" stroke-width="1.4" />
+  <line x1="133" y1="31" x2="133" y2="45" stroke="#949ba0" stroke-width="1.4" />
+  <path d="M114 43 L124 33" stroke="#fff" stroke-width="1.4" opacity="0.7" />
+  <rect x="125" y="52" width="9" height="2.4" rx="1.2" fill="#7e868c" />
+  <line x1="159" y1="34" x2="167" y2="31" stroke="#2f353b" stroke-width="1.8" />
+  <rect x="165" y="28" width="4" height="6.5" rx="1.5" fill="#2f353b" />
+  <rect x="176" y="52" width="3.6" height="5" rx="1" fill="#ffd66b" />
+  <rect x="169" y="59" width="14" height="5" rx="2" fill="#262b2f" />
+
+  <g class="wheel">
+    <circle cx="48" cy="64" r="14" fill="#1c2024" />
+    <circle cx="48" cy="64" r="13.5" fill="none" stroke="#33393e" stroke-width="2" />
+    <circle cx="48" cy="64" r="7" fill="#c8ccce" />
+    <circle cx="48" cy="64" r="2.4" fill="#6b7176" />
+    <g fill="#8a9095">
+      <circle cx="48" cy="58.6" r="1.1" />
+      <circle cx="53" cy="62.2" r="1.1" />
+      <circle cx="51.1" cy="67.9" r="1.1" />
+      <circle cx="44.9" cy="67.9" r="1.1" />
+      <circle cx="43" cy="62.2" r="1.1" />
+    </g>
+  </g>
+  <g class="wheel">
+    <circle cx="150" cy="64" r="14" fill="#1c2024" />
+    <circle cx="150" cy="64" r="13.5" fill="none" stroke="#33393e" stroke-width="2" />
+    <circle cx="150" cy="64" r="7" fill="#c8ccce" />
+    <circle cx="150" cy="64" r="2.4" fill="#6b7176" />
+    <g fill="#8a9095">
+      <circle cx="150" cy="58.6" r="1.1" />
+      <circle cx="155" cy="62.2" r="1.1" />
+      <circle cx="153.1" cy="67.9" r="1.1" />
+      <circle cx="146.9" cy="67.9" r="1.1" />
+      <circle cx="145" cy="62.2" r="1.1" />
+    </g>
+  </g>
+</svg>
+
+<style>
+  .truck {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .truck .wheel {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: truck-wheel 0.9s linear infinite;
+  }
+
+  @keyframes truck-wheel {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .truck .wheel {
+      animation: none;
+    }
+  }
+</style>

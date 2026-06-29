@@ -1,0 +1,76 @@
+---
+import site from '../data/site.json';
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <Logo />
+    <div class="header__actions">
+      <a class="phone-link header__phone" href={site.phoneHref}>
+        <Icon name="phone" size={20} />
+        {site.phone}
+      </a>
+      <a class="header__call" href={site.phoneHref} aria-label={`Зателефонувати: ${site.phone}`}>
+        <Icon name="phone" size={20} />
+      </a>
+      <a class="btn btn--primary header__cta" href={site.phoneHref}>{site.hero.primaryCta}</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    transition: box-shadow 0.3s var(--ease);
+  }
+
+  .header.is-scrolled {
+    box-shadow: 0 6px 24px rgba(20, 23, 26, 0.07);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 76px;
+  }
+
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    min-width: 0;
+  }
+
+  .header__call {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--color-orange);
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 720px) {
+    .header__phone,
+    .header__cta {
+      display: none;
+    }
+    .header__call {
+      display: inline-flex;
+    }
+    .header__inner {
+      min-height: 64px;
+    }
+  }
+</style>

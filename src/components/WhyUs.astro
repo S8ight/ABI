@@ -1,0 +1,117 @@
+---
+import features from '../data/features.json';
+import Icon from './Icon.astro';
+---
+
+<section class="section" id="why-us">
+  <div class="container">
+    <h2 class="section-title section-title--left" data-reveal>{features.heading}</h2>
+    <div class="features">
+      {features.items.map((item, i) => (
+        <div class="feature" data-reveal style={`--reveal-delay:${i * 100}ms`}>
+          <span class="feature__icon"><Icon name={item.icon} size={28} /></span>
+          <h3 class="feature__title">{item.title}</h3>
+          <p class="feature__text">{item.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+
+  .feature {
+    padding: 30px 26px;
+    border-radius: var(--radius-lg);
+    border: 1px solid transparent;
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease),
+      border-color 0.35s var(--ease), background-color 0.35s var(--ease);
+  }
+
+  .feature:hover {
+    transform: translateY(-8px);
+    background: #fff;
+    border-color: var(--color-border);
+    box-shadow: var(--shadow-card);
+  }
+
+  .feature__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    border-radius: 16px;
+    background: rgba(47, 93, 58, 0.1);
+    color: var(--color-green);
+    margin-bottom: 20px;
+    transition: background-color 0.3s var(--ease), color 0.3s var(--ease),
+      transform 0.3s var(--ease);
+  }
+
+  .feature:hover .feature__icon {
+    background: var(--color-green);
+    color: #fff;
+    transform: scale(1.06) rotate(-4deg);
+  }
+
+  .feature__title {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+
+  .feature__text {
+    color: var(--color-text-muted);
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .features {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .feature {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 16px;
+      padding: 18px 18px;
+      background: #fff;
+      border-color: var(--color-border);
+      box-shadow: var(--shadow-card);
+    }
+    .feature__icon {
+      grid-column: 1;
+      grid-row: 1 / 3;
+      align-self: center;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 0;
+    }
+    .feature__title {
+      grid-column: 2;
+      align-self: end;
+      margin-bottom: 4px;
+    }
+    .feature__text {
+      grid-column: 2;
+      align-self: start;
+    }
+  }
+</style>

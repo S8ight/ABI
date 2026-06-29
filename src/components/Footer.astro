@@ -1,0 +1,56 @@
+---
+import site from '../data/site.json';
+import Logo from './Logo.astro';
+import Icon from './Icon.astro';
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <Logo variant="light" />
+    <a class="footer__item" href={site.phoneHref}>
+      <Icon name="phone" size={18} />
+      {site.phone}
+    </a>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-footer);
+    color: var(--color-footer-text);
+    padding-block: 28px;
+  }
+
+  .footer__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .footer__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    transition: color 0.18s ease;
+  }
+
+  .footer__item svg {
+    color: var(--color-orange);
+  }
+
+  .footer__item:hover {
+    color: #fff;
+  }
+
+  @media (max-width: 600px) {
+    .footer__inner {
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+  }
+</style>

@@ -1,0 +1,118 @@
+---
+import services from '../data/services.json';
+import Icon from './Icon.astro';
+---
+
+<section class="section" id="services">
+  <div class="container">
+    <h2 class="section-title" data-reveal>{services.heading}</h2>
+    <div class="services">
+      {services.items.map((item, i) => (
+        <article class={`service-card service-card--${item.accent}`} data-reveal style={`--reveal-delay:${i * 110}ms`}>
+          <span class="service-card__deco" aria-hidden="true">
+            <Icon name={item.icon} size={150} strokeWidth={1.4} />
+          </span>
+          <span class="service-card__icon"><Icon name={item.icon} size={30} /></span>
+          <h3 class="service-card__title">{item.title}</h3>
+          <p class="service-card__text">{item.text}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .service-card {
+    --accent: var(--color-orange);
+    --accent-2: var(--color-orange-hover);
+    --glow: rgba(229, 97, 30, 0.34);
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 38px 32px 34px;
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease),
+      border-color 0.35s var(--ease);
+  }
+
+  .service-card--green {
+    --accent: var(--color-green);
+    --accent-2: var(--color-green-dark);
+    --glow: rgba(47, 93, 58, 0.34);
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    border-color: transparent;
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .service-card__deco {
+    position: absolute;
+    right: -16px;
+    bottom: -26px;
+    color: var(--accent);
+    opacity: 0.07;
+    transform: rotate(-8deg);
+    pointer-events: none;
+    transition: transform 0.55s var(--ease);
+  }
+
+  .service-card:hover .service-card__deco {
+    transform: rotate(-8deg) scale(1.08);
+  }
+
+  .service-card__icon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    background: linear-gradient(140deg, var(--accent), var(--accent-2));
+    color: #fff;
+    box-shadow: 0 16px 30px -10px var(--glow);
+    margin-bottom: 24px;
+    transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  }
+
+  .service-card:hover .service-card__icon {
+    transform: scale(1.06) rotate(-6deg);
+    box-shadow: 0 22px 38px -10px var(--glow);
+  }
+
+  .service-card__title {
+    position: relative;
+    z-index: 1;
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+
+  .service-card__text {
+    position: relative;
+    z-index: 1;
+    color: var(--color-text-muted);
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 900px) {
+    .services {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+      margin-inline: auto;
+    }
+  }
+</style>
