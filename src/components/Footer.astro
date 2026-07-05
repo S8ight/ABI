@@ -7,10 +7,16 @@ import Icon from './Icon.astro';
 <footer class="footer">
   <div class="container footer__inner">
     <Logo variant="light" />
-    <a class="footer__item" href={site.phoneHref}>
-      <Icon name="phone" size={18} />
-      {site.phone}
-    </a>
+    <div class="footer__phones">
+      <a class="footer__item" href={site.phoneHref}>
+        <Icon name="phone" size={18} />
+        {site.phone}
+      </a>
+      <a class="footer__item" href={site.phoneHref2}>
+        <Icon name="phone" size={18} />
+        {site.phone2}
+      </a>
+    </div>
   </div>
 </footer>
 
@@ -46,11 +52,22 @@ import Icon from './Icon.astro';
     color: #fff;
   }
 
+  .footer__phones {
+    display: flex;
+    align-items: center;
+    gap: 14px 30px;
+    flex-wrap: wrap;
+  }
+
   @media (max-width: 600px) {
     .footer__inner {
       flex-direction: column;
       align-items: center;
       gap: 18px;
+    }
+    .footer__phones {
+      flex-direction: column;
+      gap: 14px;
     }
   }
 </style>

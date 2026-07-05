@@ -19,7 +19,7 @@ const { hero } = site;
             style={`--reveal-delay:${i * 90}ms`}
           >{line.text}</span>
         ))}
-        <span class="sr-only"> в Івано-Франківській та сусідніх областях</span>
+        <span class="sr-only"> в межах Івано-Франківської області</span>
       </h1>
 
       <ul class="hero__bullets" data-reveal style="--reveal-delay:300ms">
@@ -38,10 +38,16 @@ const { hero } = site;
           {hero.primaryCta}
           <Icon name="arrow-right" size={18} class="btn__arrow" />
         </a>
-        <a class="phone-link hero__phone" href={site.phoneHref}>
-          <Icon name="phone" size={20} />
-          {site.phone}
-        </a>
+        <div class="hero__phones">
+          <a class="phone-link hero__phone" href={site.phoneHref}>
+            <Icon name="phone" size={20} />
+            {site.phone}
+          </a>
+          <a class="phone-link hero__phone" href={site.phoneHref2}>
+            <Icon name="phone" size={20} />
+            {site.phone2}
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -166,6 +172,12 @@ const { hero } = site;
     align-items: center;
     gap: 28px;
     flex-wrap: wrap;
+  }
+
+  .hero__phones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .hero__phone {

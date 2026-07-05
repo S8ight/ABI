@@ -7,8 +7,11 @@
   },
   "phone": "067 00 98 008",
   "phoneHref": "tel:+380670098008",
+  "phone2": "067 343 35 07",
+  "phoneHref2": "tel:+380673433507",
   "email": "info@arsbudinvest.ua",
-  "region": "Працюємо в Івано-Франківській та сусідніх областях",
+  "region": "В межах Івано-Франківської області",
+  "headerCta": "Зателефонувати",
   "socials": [
     { "label": "Instagram", "icon": "instagram", "href": "https://instagram.com/" },
     { "label": "TikTok", "icon": "tiktok", "href": "https://tiktok.com/" }
@@ -24,7 +27,7 @@
       { "icon": "blocks", "text": "Власне виробництво блоків", "href": "#blocks" },
       { "icon": "truck", "text": "Оренда спецтехніки", "href": "#equipment" }
     ],
-    "primaryCta": "Отримати кошторис",
+    "primaryCta": "Зателефонувати нам",
     "image": "/assets/hero/hero.jpg",
     "imageAlt": "Сучасний будинок під ключ"
   },
@@ -32,10 +35,10 @@
     { "icon": "medal", "text": "11+ років досвіду" },
     { "icon": "shield-check", "text": "Гарантія на всі роботи" },
     { "icon": "calculator", "text": "Фіксований кошторис" },
-    { "icon": "map-pin", "text": "Івано-Франківська та сусідні області" }
+    { "icon": "map-pin", "text": "В межах Івано-Франківської області" }
   ],
   "cta": {
     "title": "ПОТРІБЕН БУДИНОК, БЛОКИ АБО ТЕХНІКА?",
-    "buttonLabel": "Замовити дзвінок"
+    "buttonLabel": "Зателефонувати нам"
   }
 }

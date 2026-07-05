@@ -8,14 +8,17 @@ import Icon from './Icon.astro';
   <div class="container header__inner">
     <Logo />
     <div class="header__actions">
-      <a class="phone-link header__phone" href={site.phoneHref}>
-        <Icon name="phone" size={20} />
-        {site.phone}
-      </a>
-      <a class="header__call" href={site.phoneHref} aria-label={`Зателефонувати: ${site.phone}`}>
-        <Icon name="phone" size={20} />
-      </a>
-      <a class="btn btn--primary header__cta" href={site.phoneHref}>{site.hero.primaryCta}</a>
+      <div class="header__phones">
+        <a class="phone-link header__phone" href={site.phoneHref}>
+          <Icon name="phone" size={18} />
+          {site.phone}
+        </a>
+        <a class="phone-link header__phone" href={site.phoneHref2}>
+          <Icon name="phone" size={18} />
+          {site.phone2}
+        </a>
+      </div>
+      <a class="btn btn--primary header__cta" href={site.phoneHref}>{site.headerCta}</a>
     </div>
   </div>
 </header>
@@ -49,25 +52,23 @@ import Icon from './Icon.astro';
     min-width: 0;
   }
 
-  .header__call {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background: var(--color-orange);
-    color: #fff;
-    flex-shrink: 0;
+  .header__phones {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .header__phone {
+    font-size: 15px;
   }
 
   @media (max-width: 720px) {
-    .header__phone,
     .header__cta {
       display: none;
     }
-    .header__call {
-      display: inline-flex;
+    .header__phone {
+      font-size: 13.5px;
+      gap: 7px;
     }
     .header__inner {
       min-height: 64px;
