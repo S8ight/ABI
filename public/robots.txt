@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arsbudinvest.ua/sitemap-index.xml
+Sitemap: https://arsbudinvest.com/sitemap-index.xml
