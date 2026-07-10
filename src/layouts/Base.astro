@@ -55,15 +55,16 @@ const jsonLd = {
       '@type': 'WebSite',
       '@id': `${origin}/#website`,
       url: `${origin}/`,
-      name: 'АРСБУДІНВЕСТ',
+      name: 'АрсБудІнвест',
+      alternateName: ['АРСБУДІНВЕСТ', 'АРС БУД ІНВЕСТ', 'Арс Буд Інвест', 'ARS BUDINVEST'],
       inLanguage: 'uk-UA',
       publisher: { '@id': `${origin}/#business` },
     },
     {
       '@type': 'GeneralContractor',
       '@id': `${origin}/#business`,
-      name: 'АРСБУДІНВЕСТ',
-      alternateName: 'ARSBUDINVEST',
+      name: 'АрсБудІнвест',
+      alternateName: ['АРСБУДІНВЕСТ', 'АРС БУД ІНВЕСТ', 'Арс Буд Інвест', 'ArsBudInvest', 'ARS BUDINVEST', 'ARSBUDINVEST'],
       description,
       url: `${origin}/`,
       telephone: phone,
@@ -93,6 +94,7 @@ const jsonLd = {
       document.documentElement.classList.add('js');
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
@@ -113,7 +115,7 @@ const jsonLd = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:site_name" content="АРС БУДІНВЕСТ" />
+    <meta property="og:site_name" content="АрсБудІнвест" />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
